@@ -22,7 +22,7 @@ public class Contact{
 	 * h : phonetic name
 	 */
 	private List<String> fields;
-	private static Dictionary<String, String> d = new Hashtable<String,String>();
+	private static Hashtable<String, String> d = new Hashtable<String,String>();
 	private static boolean initted = false;
 	public Contact(String attrib, List<String> f){
 		if(attrib == null || f == null)throw new NullPointerException();
@@ -63,5 +63,11 @@ public class Contact{
 		info.add("This dingus forgot his header!");
 		Contact c = new Contact(attributes, info);
 		System.out.println(c.get("phone"));
+		c.toString();
+	}
+	public has(String s) throws Exception{
+		if(s== null)throw new NullPointerException("The specified attribute is null");
+		if(!d.contains(s))throw new Exception("The specified attribute is not yet supported");
+		return this.attributes.contains(s);
 	}
 }
